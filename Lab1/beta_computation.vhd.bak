@@ -4,7 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 use IEEE.std_logic_unsigned.all;
 
 
-entity alpha_computation_odd is 
+entity beta_computation is 
 	
 	generic(
 		W_bits			: positive := 32; -- size of word
@@ -15,14 +15,11 @@ entity alpha_computation_odd is
 		x	: in std_logic_vector(W_bits-1 downto 0);
 		y	: out std_logic_vector(W_bits-1 downto 0));
 		
-end entity alpha_computation_oddd;
+end entity beta_computation;
 
 
 
-architecture alpha_odd_comp_arch of alpha_computation_odd is
-
-	---- Beta Even, Alpha = -2B + .5B
-
+architecture beta_comp_arch of beta_computation is
 
 	begin
 	

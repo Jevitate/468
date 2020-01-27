@@ -21,9 +21,6 @@ end entity alpha_computation_oddd;
 
 architecture alpha_odd_comp_arch of alpha_computation_odd is
 
-	---- Beta Even, Alpha = -2B + .5B
-
-
 	begin
 	
 	

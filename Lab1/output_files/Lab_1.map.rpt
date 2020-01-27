@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab_1
-Tue Jan 21 12:24:54 2020
+Mon Jan 27 00:10:51 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,14 +10,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Top-level Entity: |rsqrt
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Messages
 
 
 
@@ -40,27 +33,22 @@ refer to the applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Jan 21 12:24:54 2020       ;
-; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name                   ; Lab_1                                       ;
-; Top-level Entity Name           ; rsqrt                                       ;
-; Family                          ; Cyclone V                                   ;
-; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 0                                           ;
-; Total pins                      ; 64                                          ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
-; Total DSP Blocks                ; 0                                           ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0                                           ;
-; Total DLLs                      ; 0                                           ;
-+---------------------------------+---------------------------------------------+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Failed - Mon Jan 27 00:10:51 2020           ;
+; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name               ; Lab_1                                       ;
+; Top-level Entity Name       ; rsqrt                                       ;
+; Family                      ; Cyclone V                                   ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
+; Total registers             ; N/A until Partition Merge                   ;
+; Total pins                  ; N/A until Partition Merge                   ;
+; Total virtual pins          ; N/A until Partition Merge                   ;
+; Total block memory bits     ; N/A until Partition Merge                   ;
+; Total PLLs                  ; N/A until Partition Merge                   ;
+; Total DLLs                  ; N/A until Partition Merge                   ;
++-----------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -166,193 +154,32 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                  ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------+---------+
-; rsqrt.vhd                        ; yes             ; User VHDL File  ; C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------+---------+
-
-
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimate of Logic utilization (ALMs needed) ; 0     ;
-;                                             ;       ;
-; Combinational ALUT usage for logic          ; 0     ;
-;     -- 7 input functions                    ; 0     ;
-;     -- 6 input functions                    ; 0     ;
-;     -- 5 input functions                    ; 0     ;
-;     -- 4 input functions                    ; 0     ;
-;     -- <=3 input functions                  ; 0     ;
-;                                             ;       ;
-; Dedicated logic registers                   ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 64    ;
-;                                             ;       ;
-; Total DSP Blocks                            ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; x[0]  ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 64    ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |rsqrt                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 64   ; 0            ; |rsqrt              ; rsqrt       ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |rsqrt ;
-+----------------+-------+----------------------------------------------+
-; Parameter Name ; Value ; Type                                         ;
-+----------------+-------+----------------------------------------------+
-; W_bits         ; 32    ; Signed Integer                               ;
-; F_bits         ; 16    ; Signed Integer                               ;
-; N_iterations   ; 3     ; Signed Integer                               ;
-+----------------+-------+----------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
-; boundary_port         ; 64                          ;
-;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Jan 21 12:24:38 2020
+    Info: Processing started: Mon Jan 27 00:10:38 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab_1 -c Lab_1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file rsqrt.vhd
-    Info (12022): Found design unit 1: rsqrt-rsqrt_arch File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 21
-    Info (12023): Found entity 1: rsqrt File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 6
-Info (12127): Elaborating entity "rsqrt" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at rsqrt.vhd(15): used implicit default value for signal "y" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "y[0]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[1]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[2]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[3]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[4]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[5]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[6]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[7]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[8]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[9]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[10]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[11]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[12]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[13]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[14]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[15]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[16]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[17]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[18]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[19]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[20]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[21]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[22]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[23]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[24]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[25]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[26]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[27]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[28]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[29]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[30]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-    Warning (13410): Pin "y[31]" is stuck at GND File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 15
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 32 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "x[0]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[1]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[2]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[3]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[4]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[5]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[6]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[7]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[8]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[9]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[10]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[11]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[12]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[13]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[14]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[15]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[16]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[17]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[18]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[19]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[20]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[21]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[22]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[23]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[24]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[25]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[26]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[27]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[28]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[29]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[30]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-    Warning (15610): No output dependent on input pin "x[31]" File: C:/Users/mc_gr/Desktop/468_labs/468/rsqrt.vhd Line: 14
-Info (21057): Implemented 64 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 32 input pins
-    Info (21059): Implemented 32 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 68 warnings
-    Info: Peak virtual memory: 4862 megabytes
-    Info: Processing ended: Tue Jan 21 12:24:54 2020
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:28
+    Info (12022): Found design unit 1: rsqrt-rsqrt_arch File: C:/Users/mc_gr/Desktop/468_labs/468/Lab1/rsqrt.vhd Line: 21
+    Info (12023): Found entity 1: rsqrt File: C:/Users/mc_gr/Desktop/468_labs/468/Lab1/rsqrt.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file beta_computation.vhd
+    Info (12022): Found design unit 1: beta_computation-beta_comp_arch File: C:/Users/mc_gr/Desktop/468_labs/468/Lab1/beta_computation.vhd Line: 22
+    Info (12023): Found entity 1: beta_computation File: C:/Users/mc_gr/Desktop/468_labs/468/Lab1/beta_computation.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file alpha_computation_even.vhd
+    Info (12022): Found design unit 1: alpha_computation_even-alpha_even_comp_arch File: C:/Users/mc_gr/Desktop/468_labs/468/Lab1/alpha_computation_even.vhd Line: 22
+    Info (12023): Found entity 1: alpha_computation_even File: C:/Users/mc_gr/Desktop/468_labs/468/Lab1/alpha_computation_even.vhd Line: 7
+Error (10396): VHDL syntax error at alpha_computation_odd.vhd(18): name used in construct must match previously specified name "alpha_computation_odd" File: C:/Users/mc_gr/Desktop/468_labs/468/Lab1/alpha_computation_odd.vhd Line: 18
+Error (10523): Ignored construct alpha_computation_odd at alpha_computation_odd.vhd(7) due to previous errors File: C:/Users/mc_gr/Desktop/468_labs/468/Lab1/alpha_computation_odd.vhd Line: 7
+Info (12021): Found 0 design units, including 0 entities, in source file alpha_computation_odd.vhd
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
+    Error: Peak virtual memory: 4842 megabytes
+    Error: Processing ended: Mon Jan 27 00:10:51 2020
+    Error: Elapsed time: 00:00:13
+    Error: Total CPU time (on all processors): 00:00:26
 
 
