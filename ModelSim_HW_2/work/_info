@@ -1,0 +1,80 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/mc_gr/Desktop/468_labs/468/Simulink_HW_2
+Ecounter
+Z0 w1475690574
+Z1 dC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_HW_2
+Z2 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_HW_2/counter.vhd
+Z3 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_HW_2/counter.vhd
+l0
+L10
+V8e12:b;k3N_fOZO]L6N852
+!s100 [3YB00WOScZ[1n5QzB5>K2
+Z4 OV;C;10.5b;63
+32
+Z5 !s110 1580180032
+!i10b 1
+Z6 !s108 1580180032.000000
+Z7 !s90 -reportprogress|300|-work|work|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_HW_2/counter.vhd|
+Z8 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_HW_2/counter.vhd|
+!i113 1
+Z9 o-work work
+Z10 tExplicit 1 CvgOpt 0
+Aonly
+DEx4 work 7 counter 0 22 8e12:b;k3N_fOZO]L6N852
+l34
+L16
+Vo@19649`f4cTa[KeW^X<P0
+!s100 ^Tk8L<z6nzL>X;n;9<^FD1
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10
+Etest_counter
+R0
+R1
+Z11 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_HW_2/tcounter.vhd
+Z12 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_HW_2/tcounter.vhd
+l0
+L10
+V74>9e>P8XPT<9@@iz`ha31
+!s100 4H1USZMHB7cgmkGOZ:ClI0
+R4
+32
+R5
+!i10b 1
+R6
+Z13 !s90 -reportprogress|300|-work|work|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_HW_2/tcounter.vhd|
+Z14 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_HW_2/tcounter.vhd|
+!i113 1
+R9
+R10
+Aonly
+DEx4 work 12 test_counter 0 22 74>9e>P8XPT<9@@iz`ha31
+l25
+L14
+Vn[VSfI;0foCU;JOQHR0G@3
+!s100 GWn18Y`M^WdDSBha21A9n3
+R4
+32
+R5
+!i10b 1
+R6
+R13
+R14
+!i113 1
+R9
+R10

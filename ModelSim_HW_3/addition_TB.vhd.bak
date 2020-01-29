@@ -1,0 +1,74 @@
+library IEEe;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.std_logic_unsigned.all;
+use STD.textio.all;
+use ieee.std_logic_textio.all;
+
+entity addition_TB is
+end;
+
+architecture addition_arch of addition_TB is
+	
+
+	--Component Adder
+
+	component addition is 
+	port (	input	: in integer;
+		out_put	: out integer);
+	end component addition;
+
+
+
+	--Testbench signals
+
+	file file_input		: text;
+	file file_output	: text;
+
+	signal in_number	: integer;
+	signal out_number	: integer;
+    begin
+	
+
+	addition_of_1 : addition
+	port map(
+		input => in_number,
+		out_put => out_number);
+	
+	
+
+
+	process
+
+	variable in_line	: line;
+	variable out_line	: line;
+	variable in_num		: integer;
+
+	begin
+
+	file_open(file_input, "input_file.txt", read_mode);
+	file_open(file_output, "output_file.txt", write_mode);
+
+	
+	while not endfile(file_input) loop
+	readline(file_input, in_line);
+	read(in_line, in_num);
+
+	in_number <= in_num;
+	
+	wait for 50 ns;
+
+	write(out_line, out_number, right, 4);
+	writeline(file_output, out_line);
+	end loop;
+
+	file_close(file_input);
+	file_close(file_output);
+	
+	wait;
+	
+	end process;
+
+	
+
+end architecture;
