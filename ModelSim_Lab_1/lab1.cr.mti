@@ -1,0 +1,45 @@
+C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_even.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_even.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity alpha_computation_even
+-- Compiling architecture alpha_even_comp_arch of alpha_computation_even
+
+} {} {}} C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/beta_computation.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/beta_computation.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity beta_computation
+-- Compiling architecture beta_comp_arch of beta_computation
+
+} {} {}} C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_odd.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_odd.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity alpha_computation_odd
+-- Compiling architecture alpha_odd_comp_arch of alpha_computation_odd
+
+} {} {}} C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity rsqrt
+-- Compiling architecture rsqrt_arch of rsqrt
+
+} {} {}}
