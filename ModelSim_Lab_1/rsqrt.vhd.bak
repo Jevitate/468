@@ -22,7 +22,7 @@ architecture rsqrt_arch of rsqrt is
 
 	begin
 	
-	y <= x + 1;
+	y <= x;
 
 end architecture;
 
