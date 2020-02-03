@@ -1,7 +1,8 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use IEEE.std_logic_unsigned.all;
+use IEEE.std_logic_signed.all;
+use IEEE.std_logic_arith.all; 
 
 entity rsqrt is 
 	
@@ -20,9 +21,14 @@ end entity rsqrt;
 
 architecture rsqrt_arch of rsqrt is
 
+	signal arithimetric 	: std_logic_vector(31 downto 0);
+
+
 	begin
 	
-	y <= x + 1;
+	arithimetric <= x + 8;
+
+	y <= arithimetric;
 
 end architecture;
 
