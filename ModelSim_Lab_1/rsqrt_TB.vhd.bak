@@ -154,7 +154,7 @@ architecture rsqrt_arch of rsqrt_TB is
 	signal leading_zero	: std_logic_vector(4 downto 0);
 
     begin
-	
+------------------------------------------------------------------------------------------------------------
 	rsqrt_1 : rsqrt
 	generic map(
 		W_bits => W,
@@ -163,13 +163,13 @@ architecture rsqrt_arch of rsqrt_TB is
 		x => in_number,
 		y_0 => "00000000000000100000000000000000",
 		y => out_number);
-
+------------------------------------------------------------------------------------------------------------
 	rom1	: ROM 
 		port map(
 			address => rom_address,
 			clock 	=> clock,
 			q	=> rom_output);
-
+------------------------------------------------------------------------------------------------------------
 	alpha_even : alpha_computation_even 	
 	generic map(
 		W_bits => W,
@@ -178,7 +178,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		clock => clock,
 		beta_even => B_even,
 		alpha_even => A_even);
-
+------------------------------------------------------------------------------------------------------------
 	alpha_odd : alpha_computation_odd 	
 	generic map(
 		W_bits => W,
@@ -187,7 +187,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		clock => clock,
 		beta_odd => B_odd,
 		alpha_odd => A_odd);
-
+------------------------------------------------------------------------------------------------------------
 	x_alphfalfa : x_alpha
 	generic map(
 		W_bits => W,
@@ -197,7 +197,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		alpha => real_alpha,
 		x_alpha_in => unsigned(in_number),
 		std_logic_vector(x_alpha_out) => out_alpha_number);
-
+------------------------------------------------------------------------------------------------------------
 	x_betfalfa : x_beta
 	generic map(
 		W_bits => W,
@@ -207,7 +207,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		beta => beta_signed,
 		x_beta_in => unsigned(in_number),
 		std_logic_vector(x_beta_out) => out_beta_number);
-		
+------------------------------------------------------------------------------------------------------------	
 	beta_comp : beta_computation
 	generic map(
 		W_bits => W,
@@ -216,13 +216,13 @@ architecture rsqrt_arch of rsqrt_TB is
 	port map(
 		clock => clock,
 		beta => beta_int);
-
+------------------------------------------------------------------------------------------------------------
 	lzc1 : lzc
 	port map(
 		clk => clock,
 		lzc_vector => in_number,
 		lzc_count => leading_zero);
-
+------------------------------------------------------------------------------------------------------------
 	Y_G_E : y_guess_even
 	generic map(
 		W_bits => W,
@@ -253,7 +253,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		beta_signed <= to_signed(beta_int,W);
 		rom_address <= "00001111";
 		real_alpha <= A_even;
-		in_number <= x"0000000f";
+		in_number <= x"000f000f";
 		Z <= to_integer(unsigned(leading_zero));
 
 	end if;

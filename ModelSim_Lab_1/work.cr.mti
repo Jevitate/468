@@ -1,0 +1,104 @@
+C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/ROM.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/ROM.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package altera_mf_components
+-- Compiling entity ROM
+-- Compiling architecture SYN of rom
+
+} {} {}} C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/beta_computation.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/beta_computation.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity beta_computation
+-- Compiling architecture beta_comp_arch of beta_computation
+
+} {} {}} C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/alpha_computation_odd.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/alpha_computation_odd.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity alpha_computation_odd
+-- Compiling architecture alpha_odd_comp_arch of alpha_computation_odd
+
+} {} {}} C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/x_beta.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/x_beta.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity x_beta
+-- Compiling architecture x_beta_arch of x_beta
+
+} {} {}} C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/y_guess_even.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/y_guess_even.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity y_guess_even
+-- Compiling architecture y_guess_even_arch of y_guess_even
+
+} {} {}} C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/rsqrt.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/rsqrt.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity rsqrt
+-- Compiling architecture rsqrt_arch of rsqrt
+
+} {} {}} C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/rsqrt_TB.vhd {2 {vcom -work work -2002 -explicit -stats=none C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/rsqrt_TB.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling entity rsqrt_TB
+-- Compiling architecture rsqrt_arch of rsqrt_TB
+** Warning: C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/rsqrt_TB.vhd(215): (vcom-1049) Actual for generic "Z_bits" depends on value of signal "Z".
+
+} {} {}} C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/x_alpha.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/x_alpha.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity x_alpha
+-- Compiling architecture x_alpha_arch of x_alpha
+
+} {} {}} C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/lzc.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/lzc.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity lzc
+-- Compiling architecture behavioral of lzc
+
+} {} {}} C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/alpha_computation_even.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Josh/Desktop/468/468/ModelSim_Lab_1/alpha_computation_even.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity alpha_computation_even
+-- Compiling architecture alpha_even_comp_arch of alpha_computation_even
+
+} {} {}}
