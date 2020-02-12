@@ -120,9 +120,9 @@ architecture rsqrt_arch of rsqrt_TB is
 	end component;
 ------------------------------------------------------------------------------------------------------------
 	--Testbench signals
-	constant W		: positive := 32;
-	constant F		: positive := 16;
-	signal Z 		: positive := 5;
+	signal W		: positive := 32;
+	signal F		: positive := 16;
+	signal Z 		: natural := 5;
 
 	signal rom_address	: std_logic_vector(7 downto 0);
 	signal rom_output	: std_logic_vector(7 downto 0);
@@ -139,8 +139,10 @@ architecture rsqrt_arch of rsqrt_TB is
 	signal out_beta_number	: std_logic_vector(W-1 downto 0);
 	signal yn 		: std_logic_Vector(W-1 downto 0);
 	signal yn_even_output	: std_logic_vector(W-1 downto 0);
+
 	signal B_even		: signed(W-1 downto 0);
 	signal A_even		: signed(W-1 downto 0);
+
 	signal B_odd		: signed(W-1 downto 0);
 	signal A_odd		: signed(W-1 downto 0);
 	signal clock		: std_logic := '0';
@@ -150,7 +152,8 @@ architecture rsqrt_arch of rsqrt_TB is
 	signal beta_signed	: signed(W-1 downto 0);
 
 	signal leading_zero	: std_logic_vector(4 downto 0);
-
+	
+	signal real_leading_zero	: std_logic_vector(5 downto 0);
 	signal real_beta	: signed(W-1 downto 0);
 	signal real_alpha	: signed(W-1 downto 0);
 
@@ -259,7 +262,7 @@ architecture rsqrt_arch of rsqrt_TB is
 --	end if;
 --	end process;
 ------------------------------------------------------------------------------------------------------------	
-	process
+	process(clock)
 
 	variable in_line	: line;
 	variable out_line	: line;
@@ -270,27 +273,37 @@ architecture rsqrt_arch of rsqrt_TB is
 	file_open(file_input, "matlab_fixed_point.txt", read_mode);
 	file_open(file_output, "output_file.txt", write_mode);
 
+	if(rising_edge(clock)) then
 
-	--if(rising_edge(clock)) then
 
-	while (not endfile(file_input)) loop
+	--while (not endfile(file_input)) loop
 
 	readline(file_input, in_line);
 	read(in_line, in_num);
 
 	in_number <= std_logic_vector(in_num);
 	
-	--wait for 50 ns;
-	
+	--wait for 10 ns;
+	real_leading_zero <= "0" & (leading_zero);
+
+	Z <= to_integer(unsigned(real_leading_zero));
+
 	write(out_line, out_number, right);
 	writeline(file_output, out_line);
-	end loop;
-	--end if;
+	--end loop;
+	end if;
 	
 	file_close(file_input);
 	file_close(file_output);	
 
 	--wait;	
+	end process;
+
+	process(clock)
+	begin
+	if(rising_edge(clock)) then
+	beta_signed <= to_signed(beta_int,W);
+	end if;
 	end process;
 
 	

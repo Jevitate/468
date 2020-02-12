@@ -21,7 +21,8 @@ end entity beta_computation;
 
 architecture beta_comp_arch of beta_computation is
 
-	
+	-- beta = W - F - Z - 1
+
 	begin
 
 	Process(clock)

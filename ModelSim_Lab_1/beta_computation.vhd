@@ -9,7 +9,7 @@ entity beta_computation is
 	generic(
 		W_bits			: positive := 32; -- size of word
 		F_bits			: positive := 16; -- number of fractional bits
-		Z_bits			: positive);		-- leading zeros
+		Z_bits			: positive := 5);		-- leading zeros
 		
 	port(
 		clock	: in std_logic;
