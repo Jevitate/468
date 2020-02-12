@@ -39,7 +39,7 @@ architecture alpha_even_comp_arch of alpha_computation_even is
 
 		beta_two <= shift_right(beta_even,1);
 		
-		alpha_even <= beta_two - beta_one;
+		alpha <= beta_two - beta_one;
 		
 		end if;
 

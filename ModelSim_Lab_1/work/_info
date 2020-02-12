@@ -9,239 +9,436 @@ z2
 cModel Technology
 Z0 dC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1
 Ealpha_computation_even
-Z1 w1579837751
-Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z4 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z1 w1581449758
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z7 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_even.vhd
-Z8 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_even.vhd
+Z5 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_even.vhd
+Z6 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_even.vhd
 l0
 L7
-Va5M=GgDhBgQ80[N1`U@_b2
-!s100 A7o6^4l=4O^1kCCcJ^g8L0
-Z9 OV;C;10.5b;63
+VTc<>QLXkGzk9DO75=mZTS0
+!s100 dM[b_XQ7BK7jDiS>WRTIJ2
+Z7 OV;C;10.5b;63
 32
-Z10 !s110 1580709407
+Z8 !s110 1581468565
 !i10b 1
-Z11 !s108 1580709407.000000
-Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_even.vhd|
-Z13 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_even.vhd|
+Z9 !s108 1581468565.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_even.vhd|
+Z11 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_even.vhd|
 !i113 1
-Z14 o-work work -2002 -explicit
-Z15 tExplicit 1 CvgOpt 0
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
 Aalpha_even_comp_arch
 R2
 R3
 R4
-R5
-R6
-DEx4 work 22 alpha_computation_even 0 22 a5M=GgDhBgQ80[N1`U@_b2
-l24
-L22
-V?C06[c`0S>9KNO@BKPZdK3
-!s100 c0OzKdH=JN@dUMHJB=NK[2
-R9
+DEx4 work 22 alpha_computation_even 0 22 Tc<>QLXkGzk9DO75=mZTS0
+l27
+L21
+V8:>34HklJg^;=aW`O=7o=3
+!s100 FLcUe3L8oa2nVm4CTX^Kn2
+R7
 32
-R10
+R8
 !i10b 1
+R9
+R10
 R11
+!i113 1
 R12
 R13
-!i113 1
-R14
-R15
 Ealpha_computation_odd
-Z16 w1580334491
+Z14 w1581450334
+Z15 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z16 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 R2
 R3
 R4
-R5
-R6
 R0
-Z17 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_odd.vhd
-Z18 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_odd.vhd
+Z17 8C:\Users\mc_gr\Desktop\468_labs\468\ModelSim_Lab_1\alpha_computation_odd.vhd
+Z18 FC:\Users\mc_gr\Desktop\468_labs\468\ModelSim_Lab_1\alpha_computation_odd.vhd
 l0
 L7
-VLJf[^gdn9I6_]3iQF63Od2
-!s100 OK998_O7S4lzd8C7V^7962
-R9
+VLM3Ufi7M=8:WIO[N5>@NS0
+!s100 CT@M:GnhZ`[JGlSIz7T[a1
+R7
 32
-R10
+R8
 !i10b 1
-R11
-Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_odd.vhd|
-Z20 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/alpha_computation_odd.vhd|
+R9
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\mc_gr\Desktop\468_labs\468\ModelSim_Lab_1\alpha_computation_odd.vhd|
+Z20 !s107 C:\Users\mc_gr\Desktop\468_labs\468\ModelSim_Lab_1\alpha_computation_odd.vhd|
 !i113 1
-R14
-R15
+R12
+R13
 Aalpha_odd_comp_arch
+R15
+R16
 R2
 R3
 R4
-R5
-R6
-DEx4 work 21 alpha_computation_odd 0 22 LJf[^gdn9I6_]3iQF63Od2
-l27
-L22
-V`?_V7N]^ld1QJ`VT@f=O13
-!s100 OeNFdlGDkRT?dFU`=Jc681
-R9
+DEx4 work 21 alpha_computation_odd 0 22 LM3Ufi7M=8:WIO[N5>@NS0
+l29
+L21
+V^C4RPKEjmne6nEAe0nemW3
+!s100 D6g3Lf3V6kG30;GHANbIT3
+R7
 32
-R10
+R8
 !i10b 1
-R11
+R9
 R19
 R20
 !i113 1
-R14
-R15
+R12
+R13
 Ebeta_computation
-Z21 w1580334454
+Z21 w1580860379
 R2
 R3
 R4
-R5
-R6
 R0
 Z22 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/beta_computation.vhd
 Z23 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/beta_computation.vhd
 l0
 L7
-VGVVIe1KL`T0QG0oM6a;ED3
-!s100 M8?4f_h0Z@<EN=Sn`^hTV1
-R9
+V@2zgCIiDTOoHSV:aggZ_h1
+!s100 <BajjJ6hB?m4U=BIHee>a2
+R7
 32
-R10
+R8
 !i10b 1
-R11
+R9
 Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/beta_computation.vhd|
 Z25 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/beta_computation.vhd|
 !i113 1
-R14
-R15
+R12
+R13
 Abeta_comp_arch
 R2
 R3
 R4
-R5
-R6
-DEx4 work 16 beta_computation 0 22 GVVIe1KL`T0QG0oM6a;ED3
-l28
+DEx4 work 16 beta_computation 0 22 @2zgCIiDTOoHSV:aggZ_h1
+l26
 L22
-Vf^h@kJW170?ce^f5?F5P@0
-!s100 =FfeQ]PnA;2:CBfl_<jUP1
-R9
+VoDHnjL`Z4V4eQPIi5_5SN3
+!s100 3W;IiE5Y:O_VWS1agY[7o2
+R7
 32
-R10
+R8
 !i10b 1
-R11
+R9
 R24
 R25
 !i113 1
-R14
+R12
+R13
+Elzc
+Z26 w1580858649
+R16
 R15
-Ersqrt
-Z26 w1580709404
-R2
-Z27 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+R3
 R4
-R5
-R6
 R0
-Z28 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt.vhd
-Z29 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt.vhd
+Z27 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/lzc.vhd
+Z28 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/lzc.vhd
 l0
-L7
-VKZPIPHn?I=JaT_VlKEfWe2
-!s100 V=^08_;DENAJ9<J58EkP52
-R9
+L6
+V2lMNOaZQeRHJHbYD;6T:S3
+!s100 8bH3J@Hl>8aLQSffFTid`0
+R7
 32
-R10
+Z29 !s110 1581468566
 !i10b 1
-R11
-Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt.vhd|
-Z31 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt.vhd|
+Z30 !s108 1581468566.000000
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/lzc.vhd|
+Z32 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/lzc.vhd|
 !i113 1
-R14
+R12
+R13
+Abehavioral
+R16
 R15
-Arsqrt_arch
-R2
-R27
+R3
 R4
-R5
-R6
-DEx4 work 5 rsqrt 0 22 KZPIPHn?I=JaT_VlKEfWe2
-l27
-L22
-Ve1Qe^nk;610N0nOz2;Rm=3
-!s100 0aIXGa47i@P9NBj98o[Of3
-R9
+DEx4 work 3 lzc 0 22 2lMNOaZQeRHJHbYD;6T:S3
+l49
+L14
+VW1jDB75K^l0M7ibLV4G?N2
+!s100 Be[W<Rz96JEM5mY8hY[A90
+R7
 32
-R10
+R29
 !i10b 1
-R11
 R30
 R31
+R32
 !i113 1
-R14
-R15
-Ersqrt_tb
-Z32 w1580704618
-Z33 DPx4 ieee 17 float_generic_pkg 0 22 H9F2dgFW`hn13SQYDoo_R2
-Z34 DPx4 ieee 9 float_pkg 0 22 Z81QOO3@T3iYBM^RlCZFZ1
-Z35 DPx4 ieee 17 fixed_float_types 0 22 JoVc:0L4XeXcaE?c:FVe62
-Z36 DPx4 ieee 17 fixed_generic_pkg 0 22 `=cI_4Mf07Y0RE[dTgE=F2
-Z37 DPx4 ieee 9 fixed_pkg 0 22 6nURH]dUY5@T6S0eLDXJe2
-Z38 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
-R2
+R12
+R13
+Erom
+Z33 w1581450994
+Z34 DPx9 altera_mf 20 altera_mf_components 0 22 gV:l9C^?PSb6]b5V?_jR@3
 R3
 R4
-R5
-R6
 R0
-Z39 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt_TB.vhd
-Z40 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt_TB.vhd
+Z35 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/ROM.vhd
+Z36 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/ROM.vhd
 l0
-L10
-Va91a6h@1DIjG784Rn@Ll[3
-!s100 hd_ZBBFA[Mn`TZ=fGHS8f1
-R9
+L42
+V@CaHmB0;e;0GP4PjbR[V_0
+!s100 GFZUJfFk@o^BF;nKeXe:I1
+R7
 32
-R10
+R8
 !i10b 1
-R11
-Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt_TB.vhd|
-Z42 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt_TB.vhd|
+R9
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/ROM.vhd|
+Z38 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/ROM.vhd|
 !i113 1
-R14
-R15
-Arsqrt_arch
-R33
+R12
+R13
+Asyn
 R34
-R35
-R36
+R3
+R4
+DEx4 work 3 rom 0 22 @CaHmB0;e;0GP4PjbR[V_0
+l56
+L52
+VDb]>P^5afeJnkL6JZ0;0L3
+!s100 l5MZA]iSGh]UBgNGjed=P0
+R7
+32
+R8
+!i10b 1
+R9
 R37
 R38
+!i113 1
+R12
+R13
+Ersqrt
+Z39 w1580856288
 R2
 R3
 R4
-R5
-R6
-Z43 DEx4 work 8 rsqrt_tb 0 22 a91a6h@1DIjG784Rn@Ll[3
-l37
-L13
-Z44 VTAiJ__COW4[R5Ri]^W:gA3
-Z45 !s100 d[`]ToiIUchZ<AXLjiXo:2
-R9
+R0
+Z40 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt.vhd
+Z41 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt.vhd
+l0
+L6
+V0XjOJnAhGf^3SWbz;oSA63
+!s100 X=kj6B9LYnj?lbEog<Uo50
+R7
 32
-R10
+R8
 !i10b 1
-R11
-R41
-R42
+R9
+Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt.vhd|
+Z43 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt.vhd|
 !i113 1
-R14
+R12
+R13
+Arsqrt_arch
+R2
+R3
+R4
+DEx4 work 5 rsqrt 0 22 0XjOJnAhGf^3SWbz;oSA63
+l39
+L22
+Vg3@7BCA9c7XR^CG5m]D:R0
+!s100 jJCek9Y]gQSlbKD3Y_4a]1
+R7
+32
+R8
+!i10b 1
+R9
+R42
+R43
+!i113 1
+R12
+R13
+Ersqrt_tb
+Z44 w1581468557
+Z45 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
 R15
+R16
+R2
+R3
+R4
+R0
+Z46 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt_TB.vhd
+Z47 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt_TB.vhd
+l0
+L9
+VRiJ@><zEV[hghcoTWI;nE2
+!s100 Jb8UVbJX[81?MJeLlcd0z1
+R7
+32
+R8
+!i10b 1
+R9
+Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt_TB.vhd|
+Z49 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/rsqrt_TB.vhd|
+!i113 1
+R12
+R13
+Arsqrt_arch
+R45
+R15
+R16
+R2
+R3
+R4
+DEx4 work 8 rsqrt_tb 0 22 RiJ@><zEV[hghcoTWI;nE2
+l156
+L12
+VI24i=RIV2AJd@O@ZaNCY_0
+!s100 Fhm3>InVO5FzACOLj@:VU3
+R7
+32
+R8
+!i10b 1
+R9
+R48
+R49
+!i113 1
+R12
+R13
+Ex_alpha
+Z50 w1581453748
+R15
+R16
+R2
+R3
+R4
+R0
+Z51 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/x_alpha.vhd
+Z52 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/x_alpha.vhd
+l0
+L8
+VOl[O[SZ_W5?SMUkhX6XC?1
+!s100 n_[XK==HCS?=A;D>mY=8S0
+R7
+32
+R8
+!i10b 1
+R9
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/x_alpha.vhd|
+Z54 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/x_alpha.vhd|
+!i113 1
+R12
+R13
+Ax_alpha_arch
+R15
+R16
+R2
+R3
+R4
+DEx4 work 7 x_alpha 0 22 Ol[O[SZ_W5?SMUkhX6XC?1
+l27
+L22
+V=P;=2_I;<O>41Oj=:32d71
+!s100 Q`M2RVQ7`YOa^4aYM4O<D2
+R7
+32
+R8
+!i10b 1
+R9
+R53
+R54
+!i113 1
+R12
+R13
+Ex_beta
+Z55 w1581457800
+R15
+R16
+R2
+R3
+R4
+R0
+Z56 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/x_beta.vhd
+Z57 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/x_beta.vhd
+l0
+L8
+VRjbk3WfEWoBoUjiY1=MDe2
+!s100 3JkL8E<II3AjVf7kmG]6X1
+R7
+32
+R29
+!i10b 1
+R9
+Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/x_beta.vhd|
+Z59 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/x_beta.vhd|
+!i113 1
+R12
+R13
+Ax_beta_arch
+R15
+R16
+R2
+R3
+R4
+DEx4 work 6 x_beta 0 22 Rjbk3WfEWoBoUjiY1=MDe2
+l27
+L22
+V1ohKKgAJQUC7c7CdMY`RR2
+!s100 LZMfG@XID^`N=OWfG9a`33
+R7
+32
+R29
+!i10b 1
+R9
+R58
+R59
+!i113 1
+R12
+R13
+Ey_guess_even
+Z60 w1581468304
+R15
+R16
+R2
+R3
+R4
+R0
+Z61 8C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/y_guess_even.vhd
+Z62 FC:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/y_guess_even.vhd
+l0
+L8
+VA]iFo7ZW7<2OQ[KoAeafS1
+!s100 :]G2=Bj[ibYRTLS00IHL]1
+R7
+32
+R29
+!i10b 1
+R30
+Z63 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/y_guess_even.vhd|
+Z64 !s107 C:/Users/mc_gr/Desktop/468_labs/468/ModelSim_Lab_1/y_guess_even.vhd|
+!i113 1
+R12
+R13
+Ay_guess_even_arch
+R15
+R16
+R2
+R3
+R4
+Z65 DEx4 work 12 y_guess_even 0 22 A]iFo7ZW7<2OQ[KoAeafS1
+l29
+L22
+Z66 VYHAN1zMTNTM@7XNDeIo:63
+Z67 !s100 j68b9LFg1cnBUKX`;::@33
+R7
+32
+R29
+!i10b 1
+R30
+R63
+R64
+!i113 1
+R12
+R13

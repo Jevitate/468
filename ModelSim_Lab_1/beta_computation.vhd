@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use IEEE.std_logic_unsigned.all;
+
 
 
 entity beta_computation is 
@@ -12,7 +12,7 @@ entity beta_computation is
 		Z_bits			: positive);		-- leading zeros
 		
 	port(
-
+		clock	: in std_logic;
 		beta	: out integer);				
 		
 end entity beta_computation;
@@ -21,14 +21,18 @@ end entity beta_computation;
 
 architecture beta_comp_arch of beta_computation is
 
-	----Beta = W - F - Z - 1
-	
-	
+	-- beta = W - F - Z - 1
+
+	begin
+
+	Process(clock)
 
 	begin
 	
+		if(rising_edge(clock)) then
+			beta <= W_bits - F_bits - Z_bits - 1;
+		end if;
 	
-	--beta <= W - F - Z - 1;
-	
-	
+	end process;
+
 end architecture;
