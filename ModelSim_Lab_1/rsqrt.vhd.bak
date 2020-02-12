@@ -74,12 +74,12 @@ architecture rsqrt_arch of rsqrt is
 
 	--		(yn(3-x*yn*2))/2	--
 
-	yn_3_xyn_2_resized_shift <= shift_right(yn_3_xyn_2_resized,1);
+	yn_3_xyn_2_resized_shift <= shift_right(yn_3_xyn_2_resized,1/2);
 
 	------------------------------------------
 
 
-	y <= std_logic_vector(yn_3_xyn_2_resized);
+	y <= std_logic_vector(yn_3_xyn_2_resized_shift);
 
 end architecture;
 

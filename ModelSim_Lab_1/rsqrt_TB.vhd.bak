@@ -25,8 +25,7 @@ architecture rsqrt_arch of rsqrt_TB is
 			y_0	: in std_logic_vector(W_bits-1 downto 0);
 			y	: out std_logic_vector(W_bits-1 downto 0));
 	end component;
-
-
+------------------------------------------------------------------------------------------------------------
 	--Component ROM
 	
 	component ROM is 
@@ -35,7 +34,7 @@ architecture rsqrt_arch of rsqrt_TB is
 			clock	: in std_logic := '1';
 			q	: out std_logic_vector(7 downto 0));
 	end component;
-
+------------------------------------------------------------------------------------------------------------
 	--Component Alpha Even
 
 	component alpha_computation_even is
@@ -47,7 +46,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		beta_even	: in signed(W_bits-1 downto 0);
 		alpha_even	: out signed(W_bits-1 downto 0));	
 	end component;
-
+------------------------------------------------------------------------------------------------------------
 	--Component Alpha Odd
 
 	component alpha_computation_odd is
@@ -58,7 +57,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		beta_odd	: in signed(W_bits-1 downto 0);
 		alpha_odd	: out signed(W_bits-1 downto 0));
 	end component;
-
+------------------------------------------------------------------------------------------------------------
 	--Component x_alpha
 
 	component x_alpha is
@@ -71,7 +70,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		x_alpha_in	: in unsigned(W_bits-1 downto 0);
 		x_alpha_out	: out unsigned(W_bits-1 downto 0));
 	end component;
-
+------------------------------------------------------------------------------------------------------------
 	--Component x_beta
 
 	component x_beta is
@@ -84,7 +83,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		x_beta_in	: in unsigned(W_bits-1 downto 0);
 		x_beta_out	: out unsigned(W_bits-1 downto 0));
 	end component;
-
+------------------------------------------------------------------------------------------------------------
 	--Component Beta Computation
 
 	component beta_computation is
@@ -97,7 +96,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		clock	: in std_logic;
 		beta	: out integer);	
 	end component;
-
+------------------------------------------------------------------------------------------------------------
 	--Component IZC 
 
 	component lzc is
@@ -106,7 +105,7 @@ architecture rsqrt_arch of rsqrt_TB is
         	lzc_vector : in  std_logic_vector (31 downto 0);
         	lzc_count  : out std_logic_vector ( 4 downto 0));
 	end component;
-
+------------------------------------------------------------------------------------------------------------
 	--Component Y guess, Beta Even
 	
 	component y_guess_even is
@@ -119,7 +118,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		x_beta_lookup	: in std_logic_vector(7 downto 0);
 		y_even_out	: out std_logic_vector(W_bits-1 downto 0));
 	end component;
-
+------------------------------------------------------------------------------------------------------------
 	--Testbench signals
 	constant W		: positive := 32;
 	constant F		: positive := 16;
@@ -144,7 +143,6 @@ architecture rsqrt_arch of rsqrt_TB is
 	signal A_even		: signed(W-1 downto 0);
 	signal B_odd		: signed(W-1 downto 0);
 	signal A_odd		: signed(W-1 downto 0);
-	signal real_alpha	: signed(W-1 downto 0);
 	signal clock		: std_logic := '0';
 	constant clk_period	: time := 1 ns;	
 
@@ -152,6 +150,9 @@ architecture rsqrt_arch of rsqrt_TB is
 	signal beta_signed	: signed(W-1 downto 0);
 
 	signal leading_zero	: std_logic_vector(4 downto 0);
+
+	signal real_beta	: signed(W-1 downto 0);
+	signal real_alpha	: signed(W-1 downto 0);
 
     begin
 ------------------------------------------------------------------------------------------------------------
@@ -233,7 +234,6 @@ architecture rsqrt_arch of rsqrt_TB is
 		x_beta_lookup => rom_output,
 		y_even_out => yn_even_output);
 
-
 ------------------------------------------------------------------------------------------------------------
 	clk_propro : process
 
@@ -244,52 +244,54 @@ architecture rsqrt_arch of rsqrt_TB is
 	wait for clk_period;
 	end process;
 ------------------------------------------------------------------------------------------------------------
-	testtest : process(clock)
+--	testtest : process(clock)
 
-	begin
-	if(rising_edge(clock)) then
-		B_even<=x"00000002";
-		B_odd <=x"00000005";
-		beta_signed <= to_signed(beta_int,W);
-		rom_address <= "00001111";
-		real_alpha <= A_even;
-		in_number <= x"000f000f";
-		Z <= to_integer(unsigned(leading_zero));
-
-	end if;
-	end process;
-------------------------------------------------------------------------------------------------------------	
---	process
-
---	variable in_line	: line;
---	variable out_line	: line;
---	variable in_num		: std_logic_vector(W-1 downto 0);
-	
 --	begin
+--	if(rising_edge(clock)) then
+--		B_even<=x"00000002";
+--		B_odd <=x"00000005";
+--		beta_signed <= to_signed(beta_int,W);
+--		rom_address <= "00001111";
+--		real_alpha <= A_even;
+--		in_number <= x"000f000f";
+--		Z <= to_integer(unsigned(leading_zero));
 
---	file_open(file_input, "matlab_fixed_point.txt", read_mode);
---	file_open(file_output, "output_file.txt", write_mode);
-
-	
---	while not endfile(file_input) loop
-
---	readline(file_input, in_line);
---	read(in_line, in_num);
-
---	in_number <= std_logic_vector(in_num);
-	
---	wait for 50 ns;
-	
---	write(out_line, out_number, right);
---	writeline(file_output, out_line);
---	end loop;
-
---	file_close(file_input);
---	file_close(file_output);
-	
---	wait;
-	
+--	end if;
 --	end process;
+------------------------------------------------------------------------------------------------------------	
+	process
+
+	variable in_line	: line;
+	variable out_line	: line;
+	variable in_num		: std_logic_vector(W-1 downto 0);
+	
+	begin
+
+	file_open(file_input, "matlab_fixed_point.txt", read_mode);
+	file_open(file_output, "output_file.txt", write_mode);
+
+
+	if(rising_edge(clock)) then
+
+	while (not endfile(file_input)) loop
+
+	readline(file_input, in_line);
+	read(in_line, in_num);
+
+	in_number <= std_logic_vector(in_num);
+	
+	--wait for 50 ns;
+	
+	write(out_line, out_number, right);
+	writeline(file_output, out_line);
+	end loop;
+	end if;
+	
+	file_close(file_input);
+	file_close(file_output);	
+
+	--wait;	
+	end process;
 
 	
 	
