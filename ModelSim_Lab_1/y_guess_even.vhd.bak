@@ -35,7 +35,7 @@ architecture y_guess_even_arch of y_guess_even is
 		if(rising_edge(clock)) then
 
 		XalphBeta <= x_alpha_yn * x_beta_lookup;
-		XalphBeta_resized <= XalphBeta(W_bits-1 downto 0);
+		XalphBeta_resized <= XalphBeta(W_bits-1+8 downto 8);
 		y_even_out <= XalphBeta_resized;
 
 		end if;

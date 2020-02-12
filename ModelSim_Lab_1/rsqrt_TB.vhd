@@ -89,10 +89,9 @@ architecture rsqrt_arch of rsqrt_TB is
 	component beta_computation is
 	generic(
 		W_bits			: positive := 32; -- size of word
-		F_bits			: positive := 16; -- number of fractional bits
-		Z_bits			: positive);		-- leading zeros
+		F_bits			: positive := 16);		-- leading zeros
 		
-	port(
+	port(	Z_bits	: in natural;
 		clock	: in std_logic;
 		beta	: out integer);	
 	end component;
@@ -122,7 +121,7 @@ architecture rsqrt_arch of rsqrt_TB is
 	--Testbench signals
 	signal W		: positive := 32;
 	signal F		: positive := 16;
-	signal Z 		: natural := 5;
+	signal Z 		: natural  := 1;
 
 	signal rom_address	: std_logic_vector(7 downto 0);
 	signal rom_output	: std_logic_vector(7 downto 0);
@@ -215,9 +214,9 @@ architecture rsqrt_arch of rsqrt_TB is
 	beta_comp : beta_computation
 	generic map(
 		W_bits => W,
-		F_bits => F,
-		Z_bits => Z)
+		F_bits => F)
 	port map(
+		Z_bits => Z,
 		clock => clock,
 		beta => beta_int);
 ------------------------------------------------------------------------------------------------------------
@@ -247,22 +246,21 @@ architecture rsqrt_arch of rsqrt_TB is
 	wait for clk_period;
 	end process;
 ------------------------------------------------------------------------------------------------------------
---	testtest : process(clock)
+	testtest : process(clock)
 
---	begin
---	if(rising_edge(clock)) then
---		B_even<=x"00000002";
---		B_odd <=x"00000005";
---		beta_signed <= to_signed(beta_int,W);
---		rom_address <= "00001111";
---		real_alpha <= A_even;
---		in_number <= x"000f000f";
---		Z <= to_integer(unsigned(leading_zero));
-
---	end if;
---	end process;
+	begin
+	if(rising_edge(clock)) then
+		
+		real_leading_zero <= "0" & (leading_zero);
+		Z <= to_integer(unsigned(real_leading_zero));
+		beta_signed <= to_signed(beta_int,W);
+		if(beta_signed(W-1) = '1') then
+		end if;
+		
+	end if;
+	end process;
 ------------------------------------------------------------------------------------------------------------	
-	process(clock)
+	process
 
 	variable in_line	: line;
 	variable out_line	: line;
@@ -273,38 +271,27 @@ architecture rsqrt_arch of rsqrt_TB is
 	file_open(file_input, "matlab_fixed_point.txt", read_mode);
 	file_open(file_output, "output_file.txt", write_mode);
 
-	if(rising_edge(clock)) then
-
-
-	--while (not endfile(file_input)) loop
+	while (not endfile(file_input)) loop
 
 	readline(file_input, in_line);
 	read(in_line, in_num);
 
+	wait for 1 ns;
 	in_number <= std_logic_vector(in_num);
-	
-	--wait for 10 ns;
-	real_leading_zero <= "0" & (leading_zero);
+	wait for 1 ns;
 
-	Z <= to_integer(unsigned(real_leading_zero));
 
 	write(out_line, out_number, right);
 	writeline(file_output, out_line);
-	--end loop;
-	end if;
+	end loop;
+	
 	
 	file_close(file_input);
 	file_close(file_output);	
 
-	--wait;	
+	wait;	
 	end process;
 
-	process(clock)
-	begin
-	if(rising_edge(clock)) then
-	beta_signed <= to_signed(beta_int,W);
-	end if;
-	end process;
 
 	
 	

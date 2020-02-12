@@ -21,7 +21,7 @@ end entity;
 
 architecture y_guess_even_arch of y_guess_even is
 
-	-- yn = Xalpha(Xbeta)^(-3/2)
+	-- yn = Xalpha(Xbeta)^(-3/2)  
 	
 	signal XalphBeta		: std_logic_vector(W_bits+7 downto 0);
 	signal XalphBeta_resized	: std_logic_vector(W_bits-1 downto 0);
