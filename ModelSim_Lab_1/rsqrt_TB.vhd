@@ -20,9 +20,12 @@ architecture rsqrt_arch of rsqrt_TB is
 			F_bits			: positive := 16; -- number of fractional bits
 			N_iterations		: positive := 3); -- number of newton's iterations
 		
-		port(
+		port(	
+			clock	: in std_logic;
 			x	: in std_logic_vector(W_bits-1 downto 0);
 			y_0	: in std_logic_vector(W_bits-1 downto 0);
+			test	: out std_logic_vector(W_bits-1 downto 0);
+			big 	: out std_logic_Vector(2*W_bits-1 downto 0);
 			y	: out std_logic_vector(W_bits-1 downto 0));
 	end component;
 ------------------------------------------------------------------------------------------------------------
@@ -35,6 +38,18 @@ architecture rsqrt_arch of rsqrt_TB is
 			q	: out std_logic_vector(7 downto 0));
 	end component;
 ------------------------------------------------------------------------------------------------------------
+	-- Component Alpha Computation
+
+	component alpha_computation is
+	generic(
+		W_bits		: positive := 32;
+		F_bits		: positive := 16);
+	port(
+		clock	: in std_logic;
+		beta	: in unsigned(W_bits-1 downto 0);
+		alpha	: out unsigned(W_bits-1 downto 0));
+	end component;
+------------------------------------------------------------------------------------------------------------
 	--Component Alpha Even
 
 	component alpha_computation_even is
@@ -43,8 +58,8 @@ architecture rsqrt_arch of rsqrt_TB is
 		F_bits			: positive := 16); -- number of newton's iterations
 		
 	port(	clock		: in std_logic;
-		beta_even	: in signed(W_bits-1 downto 0);
-		alpha_even	: out signed(W_bits-1 downto 0));	
+		beta_even	: in unsigned(W_bits-1 downto 0);
+		alpha_even	: out unsigned(W_bits-1 downto 0));	
 	end component;
 ------------------------------------------------------------------------------------------------------------
 	--Component Alpha Odd
@@ -54,8 +69,8 @@ architecture rsqrt_arch of rsqrt_TB is
 		W_bits		: positive := 32;
 		F_bits		: positive := 16);
 	port(	clock		: in std_logic;
-		beta_odd	: in signed(W_bits-1 downto 0);
-		alpha_odd	: out signed(W_bits-1 downto 0));
+		beta_odd	: in unsigned(W_bits-1 downto 0);
+		alpha_odd	: out unsigned(W_bits-1 downto 0));
 	end component;
 ------------------------------------------------------------------------------------------------------------
 	--Component x_alpha
@@ -66,7 +81,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		F_bits			: positive := 16); -- number of newton's iterations
 		
 	port(	clock		: in std_logic;
-		alpha		: in signed(W_bits-1 downto 0);
+		alpha		: in unsigned(W_bits-1 downto 0);
 		x_alpha_in	: in unsigned(W_bits-1 downto 0);
 		x_alpha_out	: out unsigned(W_bits-1 downto 0));
 	end component;
@@ -79,7 +94,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		F_bits			: positive := 16); -- number of newton's iterations
 		
 	port(	clock		: in std_logic;
-		beta		: in signed(W_bits-1 downto 0);
+		beta		: in unsigned(W_bits-1 downto 0);
 		x_beta_in	: in unsigned(W_bits-1 downto 0);
 		x_beta_out	: out unsigned(W_bits-1 downto 0));
 	end component;
@@ -117,44 +132,57 @@ architecture rsqrt_arch of rsqrt_TB is
 		x_beta_lookup	: in std_logic_vector(7 downto 0);
 		y_even_out	: out std_logic_vector(W_bits-1 downto 0));
 	end component;
+
+	--Component Y guess, Beta Odd
+
+	component y_guess_odd is
+	generic(
+		W_bits			: positive := 32; -- size of word
+		F_bits			: positive := 16); -- number of newton's iterations
+		
+	port(	clock		: in std_logic;
+		x_alpha_yn	: in std_logic_vector(W_bits-1 downto 0);
+		x_beta_lookup	: in std_logic_vector(7 downto 0);
+		y_odd_out	: out std_logic_vector(W_bits-1 downto 0));
+	end component;
+
 ------------------------------------------------------------------------------------------------------------
 	--Testbench signals
 	signal W		: positive := 32;
 	signal F		: positive := 16;
-	signal Z 		: natural  := 1;
+	signal Z 		: natural;
 
 	signal rom_address	: std_logic_vector(7 downto 0);
 	signal rom_output	: std_logic_vector(7 downto 0);
-	signal rom_output_resized : std_logic_vector(W-1 downto 0);
 
-
-
+	signal test		: std_logic_vector(W-1 downto 0);
+	signal big		: std_logic_vector(2*W-1 downto 0);
 	file file_input		: text;
 	file file_output	: text;
 
 	signal in_number	: std_logic_vector(W-1 downto 0);
 	signal out_number	: std_logic_vector(W-1 downto 0);
+
 	signal out_alpha_number	: std_logic_vector(W-1 downto 0);
 	signal out_beta_number	: std_logic_vector(W-1 downto 0);
-	signal yn 		: std_logic_Vector(W-1 downto 0);
+
 	signal yn_even_output	: std_logic_vector(W-1 downto 0);
+	signal yn_odd_output	: std_logic_vector(W-1 downto 0);
+	signal yn_final_output	: std_logic_vector(W-1 downto 0);
 
-	signal B_even		: signed(W-1 downto 0);
-	signal A_even		: signed(W-1 downto 0);
-
-	signal B_odd		: signed(W-1 downto 0);
-	signal A_odd		: signed(W-1 downto 0);
 	signal clock		: std_logic := '0';
 	constant clk_period	: time := 1 ns;	
 
-	signal beta_int		: integer;
-	signal beta_signed	: signed(W-1 downto 0);
+	signal beta_int		: integer := 0;
+	signal beta_unsigned	: unsigned(W-1 downto 0);
 
 	signal leading_zero	: std_logic_vector(4 downto 0);
-	
-	signal real_leading_zero	: std_logic_vector(5 downto 0);
-	signal real_beta	: signed(W-1 downto 0);
-	signal real_alpha	: signed(W-1 downto 0);
+	signal real_alpha	: unsigned(W-1 downto 0);
+
+
+	signal b1	: std_logic;
+	signal b2	: std_logic;
+	signal b3	: std_logic;
 
     begin
 ------------------------------------------------------------------------------------------------------------
@@ -163,33 +191,27 @@ architecture rsqrt_arch of rsqrt_TB is
 		W_bits => W,
 		F_bits => F)
 	port map(
+		clock => clock,
 		x => in_number,
-		y_0 => "00000000000000100000000000000000",
+		y_0 => yn_final_output,
+		test => test,
+		big => big,
 		y => out_number);
 ------------------------------------------------------------------------------------------------------------
 	rom1	: ROM 
-		port map(
-			address => rom_address,
-			clock 	=> clock,
-			q	=> rom_output);
+	port map(
+		address => rom_address,
+		clock 	=> clock,
+		q	=> rom_output);
 ------------------------------------------------------------------------------------------------------------
-	alpha_even : alpha_computation_even 	
+	alpha_comp : alpha_computation
 	generic map(
 		W_bits => W,
 		F_bits => F)
 	port map(
 		clock => clock,
-		beta_even => B_even,
-		alpha_even => A_even);
-------------------------------------------------------------------------------------------------------------
-	alpha_odd : alpha_computation_odd 	
-	generic map(
-		W_bits => W,
-		F_bits => F)
-	port map(
-		clock => clock,
-		beta_odd => B_odd,
-		alpha_odd => A_odd);
+		beta => beta_unsigned,
+		alpha => real_alpha);
 ------------------------------------------------------------------------------------------------------------
 	x_alphfalfa : x_alpha
 	generic map(
@@ -207,7 +229,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		F_bits => F)
 	port map(
 		clock => clock,
-		beta => beta_signed,
+		beta => beta_unsigned,
 		x_beta_in => unsigned(in_number),
 		std_logic_vector(x_beta_out) => out_beta_number);
 ------------------------------------------------------------------------------------------------------------	
@@ -235,6 +257,16 @@ architecture rsqrt_arch of rsqrt_TB is
 		x_alpha_yn => std_logic_vector(out_alpha_number),
 		x_beta_lookup => rom_output,
 		y_even_out => yn_even_output);
+------------------------------------------------------------------------------------------------------------
+	Y_G_O : y_guess_odd
+	generic map(
+		W_bits => W,
+		F_bits => F)
+	port map(
+		clock => clock,
+		x_alpha_yn => std_logic_vector(out_alpha_number),
+		x_beta_lookup => rom_output,
+		y_odd_out => yn_odd_output);
 
 ------------------------------------------------------------------------------------------------------------
 	clk_propro : process
@@ -246,19 +278,54 @@ architecture rsqrt_arch of rsqrt_TB is
 	wait for clk_period;
 	end process;
 ------------------------------------------------------------------------------------------------------------
-	testtest : process(clock)
+	step1 : process(clock)
 
 	begin
+
 	if(rising_edge(clock)) then
-		
-		real_leading_zero <= "0" & (leading_zero);
-		Z <= to_integer(unsigned(real_leading_zero));
-		beta_signed <= to_signed(beta_int,W);
-		if(beta_signed(W-1) = '1') then
-		end if;
-		
+		--b1 <= b2;
+		--b2 <= b3;
+		--b1 <= b2;
+		beta_unsigned <= to_unsigned(beta_int,W);
 	end if;
 	end process;
+------------------------------------------------------------------------------------------------------------
+	step4 : process(clock)
+
+	begin
+
+	if(rising_edge(clock)) then
+		b1 <= b2;
+		b2 <= b3;
+		b1 <= b2;
+		rom_address <= out_beta_number(15 downto 8);
+	end if;
+	end process;
+------------------------------------------------------------------------------------------------------------
+	step2	: process(clock)
+
+	begin
+	
+	if(rising_edge(clock)) then
+		Z <= to_integer(unsigned("0" & leading_zero));
+	end if;
+	end process;
+------------------------------------------------------------------------------------------------------------	
+	step3	: process(clock)
+
+	begin
+	
+	if(rising_edge(clock)) then
+		if(beta_unsigned(0) = '1') then -- '1' is odd, '0' is even
+			yn_final_output <= yn_odd_output;
+		elsif(beta_unsigned(0) = '0') then
+			yn_final_output <= yn_even_output;
+		end if;
+	end if;
+
+	end process;
+------------------------------------------------------------------------------------------------------------	
+
 ------------------------------------------------------------------------------------------------------------	
 	process
 
@@ -269,7 +336,7 @@ architecture rsqrt_arch of rsqrt_TB is
 	begin
 
 	file_open(file_input, "matlab_fixed_point.txt", read_mode);
-	file_open(file_output, "output_file.txt", write_mode);
+	--file_open(file_output, "output_file.txt", write_mode);
 
 	while (not endfile(file_input)) loop
 
@@ -281,19 +348,30 @@ architecture rsqrt_arch of rsqrt_TB is
 	wait for 1 ns;
 
 
-	write(out_line, out_number, right);
-	writeline(file_output, out_line);
+	--write(out_line, out_number, right);
+	--writeline(file_output, out_line);
 	end loop;
 	
 	
 	file_close(file_input);
-	file_close(file_output);	
+	--file_close(file_output);	
 
 	wait;	
 	end process;
+------------------------------------------------------------------------------------------------------------	
 
+	process(out_number)
+	
+	variable out_line	: line;
 
-	
-	
+	begin
+
+	file_open(file_output, "output_file.txt", write_mode);
+
+	write(out_line, out_number, right);
+	writeline(file_output, out_line);
+
+	end process;
+
 
 end architecture;

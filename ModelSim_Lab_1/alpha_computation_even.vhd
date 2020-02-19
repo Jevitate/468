@@ -11,8 +11,8 @@ entity alpha_computation_even is
 		F_bits			: positive := 16); -- number of newton's iterations
 		
 	port(	clock		: in std_logic;
-		beta_even	: in signed(W_bits-1 downto 0);
-		alpha_even	: out signed(W_bits-1 downto 0));
+		beta_even	: in unsigned(W_bits-1 downto 0);
+		alpha_even	: out unsigned(W_bits-1 downto 0));
 		
 end entity alpha_computation_even;
  	
@@ -20,10 +20,10 @@ end entity alpha_computation_even;
 
 architecture alpha_even_comp_arch of alpha_computation_even is
 
-	-- Alpha even = -2*B + .5*B
+	-- Beta Even Alpha = -2*B + .5*B
 
-	signal beta_one		: signed(W_bits-1 downto 0);
-	signal beta_two		: signed(W_bits-1 downto 0);
+	signal beta_one		: unsigned(W_bits-1 downto 0);
+	signal beta_two		: unsigned(W_bits-1 downto 0);
 	begin
 	
 

@@ -23,20 +23,27 @@ architecture beta_comp_arch of beta_computation is
 	-- beta = W - F - Z - 1
 	signal W_bit		: positive;
 	signal F_bit		: positive;
-	signal Z_bit		: natural := 1;
+	signal Z_bit		: integer;
+
+	signal delay1	: integer;
+	signal delay2	: integer;
+	signal delay3	: integer;
 
 	begin
 	
-	W_bit <= W_bits;
-	F_bit <= F_bits;
-	Z_bit <= Z_bits;
+	--W_bit <= W_bits;
+	--F_bit <= F_bits;
+	--Z_bit <= Z_bits;
 
 	Process(clock,Z_bit)
 
 	begin
 	
 		if(rising_edge(clock)) then
-			beta <= W_bit - F_bit - Z_bit - 1;
+			delay1 <= 0;--W_bits - F_bits - 1;
+			delay2 <= delay1;
+			--delay3 <= delay2;
+			beta <= W_bits - F_bits - Z_bits -1;
 		end if;
 	
 	end process;

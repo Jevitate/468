@@ -12,7 +12,7 @@ entity x_alpha is
 		F_bits			: positive := 16); -- number of newton's iterations
 		
 	port(	clock		: in std_logic;
-		alpha		: in signed(W_bits-1 downto 0);
+		alpha		: in unsigned(W_bits-1 downto 0);
 		x_alpha_in	: in unsigned(W_bits-1 downto 0);
 		x_alpha_out	: out unsigned(W_bits-1 downto 0));
 		
@@ -23,7 +23,12 @@ architecture x_alpha_arch of x_alpha is
 
 	-- x alpha = x2^alpha
 
-
+	signal delay1	: unsigned(W_bits-1 downto 0);
+	signal delay2	: unsigned(W_bits-1 downto 0);
+	signal delay3	: unsigned(W_bits-1 downto 0);
+	signal delay4	: unsigned(W_bits-1 downto 0);
+	signal delay5	: unsigned(W_bits-1 downto 0);
+	signal delay6	: unsigned(W_bits-1 downto 0);
 	begin
 	
 
@@ -31,8 +36,13 @@ architecture x_alpha_arch of x_alpha is
 
 	begin
 		if(rising_edge(clock)) then
-
-		x_alpha_out <= shift_left(x_alpha_in,to_integer(alpha));
+		delay1 <= x_alpha_in;
+		delay2 <= delay1;
+		delay3 <= delay2;
+		delay4 <= delay3;
+		delay5 <= delay4;
+		delay6 <= delay5;
+		x_alpha_out <= shift_left(delay6,to_integer(alpha));
 		
 		end if;
 

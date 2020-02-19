@@ -11,8 +11,8 @@ entity alpha_computation_odd is
 		F_bits			: positive := 16); -- number of newton's iterations
 		
 	port(	clock		: in std_logic;
-		beta_odd	: in signed(W_bits-1 downto 0);
-		alpha_odd	: out signed(W_bits-1 downto 0));
+		beta_odd	: in unsigned(W_bits-1 downto 0);
+		alpha_odd	: out unsigned(W_bits-1 downto 0));
 		
 end entity alpha_computation_odd;
 
@@ -20,11 +20,11 @@ end entity alpha_computation_odd;
 
 architecture alpha_odd_comp_arch of alpha_computation_odd is
 
-	---- Beta Even, Alpha = -2B + .5B + .5
+	---- Beta odd, Alpha = -2B + .5B + .5
 
 
-	signal beta_one		: signed(W_bits-1 downto 0);
-	signal beta_two		: signed(W_bits-1 downto 0);
+	signal beta_one		: unsigned(W_bits-1 downto 0);
+	signal beta_two		: unsigned(W_bits-1 downto 0);
 
 	begin
 	
