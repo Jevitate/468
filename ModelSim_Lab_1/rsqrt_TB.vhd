@@ -154,6 +154,7 @@ architecture rsqrt_arch of rsqrt_TB is
 
 	signal rom_address	: std_logic_vector(7 downto 0);
 	signal rom_output	: std_logic_vector(7 downto 0);
+	signal rom_output_delay	: std_logic_vector(7 downto 0);
 
 	signal test		: std_logic_vector(W-1 downto 0);
 	signal big		: std_logic_vector(2*W-1 downto 0);
@@ -283,9 +284,6 @@ architecture rsqrt_arch of rsqrt_TB is
 	begin
 
 	if(rising_edge(clock)) then
-		--b1 <= b2;
-		--b2 <= b3;
-		--b1 <= b2;
 		beta_unsigned <= to_unsigned(beta_int,W);
 	end if;
 	end process;
@@ -295,9 +293,6 @@ architecture rsqrt_arch of rsqrt_TB is
 	begin
 
 	if(rising_edge(clock)) then
-		b1 <= b2;
-		b2 <= b3;
-		b1 <= b2;
 		rom_address <= out_beta_number(15 downto 8);
 	end if;
 	end process;

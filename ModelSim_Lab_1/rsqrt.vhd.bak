@@ -38,6 +38,10 @@ architecture rsqrt_arch of rsqrt is
 	signal yn_3_xyn_2_resized	: unsigned(W_bits-1 downto 0);
 	signal yn_3_xyn_2_resized_shift	: unsigned(W_bits-1 downto 0);
 
+	signal dealy1	: std_logic_Vector(W_bits-1 downto 0);
+	signal dealy2	: std_logic_Vector(W_bits-1 downto 0);
+	signal dealy3	: std_logic_Vector(W_bits-1 downto 0);
+	signal dealy4	: std_logic_Vector(W_bits-1 downto 0);
 
 	begin
 	
@@ -54,15 +58,18 @@ architecture rsqrt_arch of rsqrt is
 	yn_squared <= unsigned(y_0) * unsigned(y_0);
 	
 	yn_squared_resized <= yn_squared(W_bits-1+F_bits downto F_bits);
-
+	big <= std_logic_Vector(yn_squared);
 	test <= std_logic_vector(yn_squared_resized);
 
 	------------------------------------------
 
 	--		x*yn^2			--
 
-	
-	x_yn_2 <= yn_squared_resized * unsigned(x);
+	delay1 <= x;
+	delay2 <= delay1;
+	delay3 <= delay2;
+	delay4 <= delay3;
+	x_yn_2 <= yn_squared_resized * unsigned(delay4);
 
 	x_yn_2_resized <= x_yn_2(W_bits-1+F_bits downto F_bits);
 

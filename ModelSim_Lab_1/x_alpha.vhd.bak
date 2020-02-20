@@ -29,6 +29,8 @@ architecture x_alpha_arch of x_alpha is
 	signal delay4	: unsigned(W_bits-1 downto 0);
 	signal delay5	: unsigned(W_bits-1 downto 0);
 	signal delay6	: unsigned(W_bits-1 downto 0);
+	signal alpha_del: unsigned(W_bits-1 downto 0);
+
 	begin
 	
 
@@ -42,7 +44,8 @@ architecture x_alpha_arch of x_alpha is
 		delay4 <= delay3;
 		delay5 <= delay4;
 		delay6 <= delay5;
-		x_alpha_out <= shift_left(delay4,to_integer(alpha));
+
+		x_alpha_out <= shift_left(delay6,to_integer(alpha));
 		
 		end if;
 

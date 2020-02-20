@@ -16,6 +16,7 @@ Fm = fimath('RoundingMethod','Floor',...
 
 fileID = fopen('matlab_fixed_point.txt','w');
 fileID2 = fopen('matlab_fixed_point_output.txt','w');
+fileID3 = fopen('check.txt.','w');
 step = 5;
 zero_count = -1;
 bit = 0;
@@ -47,7 +48,7 @@ for i = 1:step
     elseif(mod(beta,2) == 1)
         y0 = fi(x_alpha*(1/(x_beta_double)^(3/2))*(1/sqrt(2)),1,W,F,Fm);
     end
-    
+    fprintf(fileID3, '%s\n',bin(y0));
     y_squared = y0^2;
     x_y0_squared = x*y_squared;
     three_x_y0_squared = three - x_y0_squared;
