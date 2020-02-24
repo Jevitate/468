@@ -23,6 +23,8 @@ architecture rsqrt_arch of rsqrt_TB is
 		port(	
 			clock	: in std_logic;
 			x	: in std_logic_vector(W_bits-1 downto 0);
+			x_test	: out std_logic_Vector(W_bits-1 downto 0);
+			y_test	: out std_logic_vector(W_bits-1 downto 0);
 			y_0	: in std_logic_vector(W_bits-1 downto 0);
 			y	: out std_logic_vector(W_bits-1 downto 0));
 	end component;
@@ -132,6 +134,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		beta		: in unsigned(W_bits-1 downto 0);
 		x_alpha_yn	: in std_logic_vector(W_bits-1 downto 0);
 		x_beta_lookup	: in std_logic_vector(7 downto 0);
+		bevodd		: out std_logic;
 		y_out	: out std_logic_vector(W_bits-1 downto 0));
 	end component;
 ------------------------------------------------------------------------------------------------------------
@@ -163,6 +166,10 @@ architecture rsqrt_arch of rsqrt_TB is
 	signal leading_zero	: std_logic_vector(4 downto 0);
 	signal real_alpha	: unsigned(W-1 downto 0);
 
+	signal x_test		: std_logic_Vector(W-1 downto 0);
+	signal y_test		: std_logic_Vector(W-1 downto 0);
+	signal bevenodd		: std_logic;
+
     begin
 ------------------------------------------------------------------------------------------------------------
 	rsqrt_1 : rsqrt
@@ -173,6 +180,8 @@ architecture rsqrt_arch of rsqrt_TB is
 		clock => clock,
 		x => in_number,
 		y_0 => yn_guess_output,
+		x_test => x_test,
+		y_test => y_test,
 		y => out_number);
 ------------------------------------------------------------------------------------------------------------
 	rom1	: ROM 
@@ -234,6 +243,7 @@ architecture rsqrt_arch of rsqrt_TB is
 		beta => beta_unsigned,
 		x_alpha_yn => out_alpha_number,
 		x_beta_lookup => rom_output,
+		bevodd => bevenodd,
 		y_out => yn_guess_output);
 ------------------------------------------------------------------------------------------------------------
 	clk_propro : process

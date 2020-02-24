@@ -12,6 +12,8 @@ entity rsqrt is
 		
 	port(	clock	: in std_logic;
 		x	: in std_logic_vector(W_bits-1 downto 0);
+		x_test	: out std_logic_vector(W_bits-1 downto 0);
+		y_test	: out std_logic_vector(W_bits-1 downto 0);
 		y_0	: in std_logic_vector(W_bits-1 downto 0);
 		y	: out std_logic_vector(W_bits-1 downto 0));
 		
@@ -36,8 +38,8 @@ architecture rsqrt_arch of rsqrt is
 	signal yn_3_xyn_2_resized	: unsigned(W_bits-1 downto 0);
 	signal yn_3_xyn_2_resized_shift	: unsigned(W_bits-1 downto 0);
 
-	signal x_test	: std_logic_vector(W_bits-1 downto 0);
-	signal y_test	: std_logic_vector(W_bits-1 downto 0);
+	--signal x_test	: std_logic_vector(W_bits-1 downto 0);
+	--signal y_test	: std_logic_vector(W_bits-1 downto 0);
 
 	signal delay1	: std_logic_Vector(W_bits-1 downto 0);
 	signal delay2	: std_logic_Vector(W_bits-1 downto 0);
@@ -47,13 +49,18 @@ architecture rsqrt_arch of rsqrt is
 	signal delay6	: std_logic_vector(W_bits-1 downto 0);
 	signal delay7	: std_logic_vector(W_bits-1 downto 0);
 	signal delay8	: std_logic_vector(W_bits-1 downto 0);
+	signal delay9	: std_logic_vector(W_bits-1 downto 0);
+	signal delay10	: std_logic_vector(W_bits-1 downto 0);
+	signal delay11	: std_logic_vector(W_bits-1 downto 0);
+	signal delay12	: std_logic_vector(W_bits-1 downto 0);
 
 	begin
 	
+
+
 	process(clock)
 
 	begin
-
 
 	three <= "00000000000000110000000000000000";
 
@@ -76,11 +83,14 @@ architecture rsqrt_arch of rsqrt is
 	delay6 <= delay5;
 	delay7 <= delay6;
 	delay8 <= delay7;
+	delay9 <= delay8;
+	delay10<= delay9;
+	delay11<= delay10;
 
-	x_test <= delay8;
-	y_test <= y_0;
+	x_test <= delay11;
+	
 
-	x_yn_2 <= yn_squared_resized * unsigned(delay8);
+	x_yn_2 <= yn_squared_resized * unsigned(delay11);
 
 	x_yn_2_resized <= x_yn_2(W_bits-1+F_bits downto F_bits);
 
@@ -95,6 +105,7 @@ architecture rsqrt_arch of rsqrt is
 	
 	--		yn(3-x*yn^2)		--
 
+	y_test <= y_0;
 	yn_3_xyn_2 <= unsigned(y_0)*three_xyn_2;
 
 	yn_3_xyn_2_resized <= yn_3_xyn_2(W_bits-1+F_bits downto F_bits);

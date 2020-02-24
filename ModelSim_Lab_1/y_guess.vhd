@@ -15,6 +15,7 @@ entity y_guess is
 		beta		: in unsigned(W_bits-1 downto 0);
 		x_alpha_yn	: in std_logic_vector(W_bits-1 downto 0);
 		x_beta_lookup	: in std_logic_vector(7 downto 0);
+		bevodd		: out std_logic;
 		y_out	: out std_logic_vector(W_bits-1 downto 0));
 		
 end entity;
@@ -34,7 +35,11 @@ architecture y_guess_arch of y_guess is
 
 	signal even_odd			: std_logic := '0';
 
-	--constant root_2_under_one	: unsigned := "00000000000000001011010100000100";
+	signal beta_even_odd		: std_logic := '0';
+	signal delay1			: unsigned(W_bits-1 downto 0);
+	signal delay2			: unsigned(W_bits-1 downto 0);
+	signal delay3			: unsigned(W_bits-1 downto 0);
+	signal delay4			: unsigned(W_bits-1 downto 0);
 
 	begin
 -----------------------------------------------------------------------------------------------------------
@@ -60,12 +65,17 @@ architecture y_guess_arch of y_guess is
 	process(clock)
 
 	begin
-
+	
 		if(rising_edge(clock)) then
-			if(beta(0) = '1') then -- '1' is odd, '0' is even
+			delay1 <= beta;
+			delay2 <= delay1;
+			delay3 <= delay2;
+			if(delay3(0) = '1') then -- '1' is odd, '0' is even
 				even_odd <= '1';
-			elsif(beta(0) = '0') then
+				bevodd <= '1';
+			elsif(delay3(0) = '0') then
 				even_odd <= '0';
+				bevodd <= '0';
 			end if;		
 		
 		end if;
@@ -88,44 +98,6 @@ architecture y_guess_arch of y_guess is
 
 
 ------------------------------------------------------------------------------------------------------------
---	process(clock)
---
---	begin
---		if(rising_edge(clock)) then
 
-		--root_2 <= std_logic_vector(root_2_under_one);
-		
---		XalphBeta <= x_alpha_yn * x_beta_lookup;
---		XalphBeta_resized <= XalphBeta(W_bits-1+7 downto 7);
---
---		root_2_unsized <= XalphBeta_resized * root_2;
---		root_2_sized <= root_2_unsized(W_bits-1+F_bits downto F_bits);
---
---		y_odd_out <= root_2_sized;
-		
---		end if;
-
---	end process;
-------------------------------------------------------------------------------------------------------------	
-	-- yn = Xalpha(Xbeta)^(-3/2)  
-	
---	signal XalphBeta		: std_logic_vector(W_bits+7 downto 0);
---	signal XalphBeta_resized	: std_logic_vector(W_bits-1 downto 0);
-
---	begin
-	
-
---	process(clock)
-
---	begin
---		if(rising_edge(clock)) then
-
---		XalphBeta <= x_alpha_yn * x_beta_lookup;
---		XalphBeta_resized <= XalphBeta(W_bits-1+7 downto 7);
---		y_even_out <= XalphBeta_resized;
-
---		end if;
-
---	end process;
 end architecture;
 	
