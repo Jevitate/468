@@ -13,8 +13,6 @@ entity rsqrt is
 	port(	clock	: in std_logic;
 		x	: in std_logic_vector(W_bits-1 downto 0);
 		y_0	: in std_logic_vector(W_bits-1 downto 0);
-		test	: out std_logic_vector(W_bits-1 downto 0);
-		big	: out std_logic_vector(2*W_bits-1 downto 0);
 		y	: out std_logic_vector(W_bits-1 downto 0));
 		
 end entity rsqrt;
@@ -38,10 +36,17 @@ architecture rsqrt_arch of rsqrt is
 	signal yn_3_xyn_2_resized	: unsigned(W_bits-1 downto 0);
 	signal yn_3_xyn_2_resized_shift	: unsigned(W_bits-1 downto 0);
 
+	signal x_test	: std_logic_vector(W_bits-1 downto 0);
+	signal y_test	: std_logic_vector(W_bits-1 downto 0);
+
 	signal delay1	: std_logic_Vector(W_bits-1 downto 0);
 	signal delay2	: std_logic_Vector(W_bits-1 downto 0);
 	signal delay3	: std_logic_Vector(W_bits-1 downto 0);
 	signal delay4	: std_logic_Vector(W_bits-1 downto 0);
+	signal delay5	: std_logic_vector(W_bits-1 downto 0);
+	signal delay6	: std_logic_vector(W_bits-1 downto 0);
+	signal delay7	: std_logic_vector(W_bits-1 downto 0);
+	signal delay8	: std_logic_vector(W_bits-1 downto 0);
 
 	begin
 	
@@ -58,8 +63,6 @@ architecture rsqrt_arch of rsqrt is
 	yn_squared <= unsigned(y_0) * unsigned(y_0);
 	
 	yn_squared_resized <= yn_squared(W_bits-1+F_bits downto F_bits);
-	big <= std_logic_Vector(yn_squared);
-	test <= std_logic_vector(yn_squared_resized);
 
 	------------------------------------------
 
@@ -69,11 +72,17 @@ architecture rsqrt_arch of rsqrt is
 	delay2 <= delay1;
 	delay3 <= delay2;
 	delay4 <= delay3;
-	x_yn_2 <= yn_squared_resized * unsigned(delay4);
+	delay5 <= delay4;
+	delay6 <= delay5;
+	delay7 <= delay6;
+	delay8 <= delay7;
+
+	x_test <= delay8;
+	y_test <= y_0;
+
+	x_yn_2 <= yn_squared_resized * unsigned(delay8);
 
 	x_yn_2_resized <= x_yn_2(W_bits-1+F_bits downto F_bits);
-
-	--test <= x_yn_resized;
 
 	------------------------------------------
 
@@ -81,7 +90,6 @@ architecture rsqrt_arch of rsqrt is
 
 	three_xyn_2 <= unsigned(three) - x_yn_2_resized;
 
-	--test <= three_xyn_2;
 
 	------------------------------------------
 	
@@ -91,7 +99,6 @@ architecture rsqrt_arch of rsqrt is
 
 	yn_3_xyn_2_resized <= yn_3_xyn_2(W_bits-1+F_bits downto F_bits);
 	
-	--test <= yn_3_xyn_2_resized;
 
 	------------------------------------------
 
